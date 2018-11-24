@@ -457,5 +457,5 @@ __device__ void merge_array(const u32 *const src_array,
 &emsp;&emsp;4）调用 __syncthreads() 函数来实现线程的同步操作，尤其要注意确保在读取共享内存之前，想要写入的操作都已经完成。另外还需要注意，切不可将这个函数放置在发散分支（某些线程需要执行，而其他线程不需要执行），因为除非线程块中的每个线程都执行了该函数，没有任何线程能够执行之后的指令，从而导致死锁。
 
 &emsp;&emsp;5）不妨尝试使用共享内存实现矩阵乘法的优化。  
-  
-  													&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; by  潘薇鸿
+
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; by  潘薇鸿
