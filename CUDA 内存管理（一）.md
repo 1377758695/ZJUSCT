@@ -20,7 +20,7 @@
 
 ​	但在另一方面，每个SM所能调度的线程总量是有限制的，因此当线程总量达到最大时，再减少寄存器的使用量就无法达到提高占有率的目的（如下表中寄存器数目由20减小为16，线程块调度数量不变），所以在这种情况下，应增加寄存器的使用量到临界值。
 
-![1542886347631](C:\Users\dell\AppData\Roaming\Typora\typora-user-images\1542886347631.png)
+![](CUDA内存管理（一）/1.png)
 
 ##### 1.4 寄存器优化方式
 
@@ -267,7 +267,7 @@ __device__ void merge_array6(const u32 *const src_array,
 
 ​	在选择比较元素的时候，应该尽量避免选择同一个线程束中的元素进行比较，因为这会明显地导致线程束内产生分支，而每个分支都将使SM做双倍的工作，继而影响程序的性能。因此我们选择将线程束中的元素与另一半数据集中的元素进行比较。如下图，阴影部分表示当前活跃的线程。
 
-![1542975495795](C:\Users\dell\AppData\Roaming\Typora\typora-user-images\1542975495795.png)
+![](CUDA内存管理（一）/2.jpg)
 
 ```C
 __device__ void merge_array5(const u32 *const src_array, 
