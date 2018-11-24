@@ -267,7 +267,7 @@ __device__ void merge_array6(const u32 *const src_array,
 
 ​	在选择比较元素的时候，应该尽量避免选择同一个线程束中的元素进行比较，因为这会明显地导致线程束内产生分支，而每个分支都将使SM做双倍的工作，继而影响程序的性能。因此我们选择将线程束中的元素与另一半数据集中的元素进行比较。如下图，阴影部分表示当前活跃的线程。
 
-![](CUDA内存管理（一）/2.jpg)
+![](https://github.com/1377758695/ZJUSCT/blob/master/CUDA%20%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%EF%BC%88%E4%B8%80%EF%BC%89/2.jpg)
 
 ```C
 __device__ void merge_array5(const u32 *const src_array, 
